@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>Registration</title>
+<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="SaveRegistrationData.js"></script>
+    <style>
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+    </style>
+    <style>
+        div.project {
+            background-color:cornflowerblue;
+            color:white;
+            margin:20px;
+            padding:20px;
+        }
+    </style>
+
+</head>
+<body background="images.jpg">
+
+<div class="project">
+    <h1 align="center">Registration page</h1>
+    <p align="center">This is registration page.if you are first time user click register and fill out the form </p>
+
+    <marquee behavior="alternate" width="50%">This is register page</marquee>
+
+</div>
+</body>
+<body>
+
+
+<div ng-app = "RegistrationApp" ng-controller = "studentController">
+
+    <form name = "studentForm" novalidate>
+        <table border = "0">
+            <tr>
+                <td>Enter first name:</td>
+                <td><input name = "firstname" type = "text" ng-model = "firstName" required>
+                     <span style = "color:red" ng-show = "studentForm.firstname.$dirty && studentForm.firstname.$invalid">
+                        <span ng-show = "studentForm.firstname.$error.required">First Name is required.</span>
+                     </span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Enter last name: </td>
+                <td><input name = "lastname"  type = "text" ng-model = "lastName" required>
+                     <span style = "color:red" ng-show = "studentForm.lastname.$dirty && studentForm.lastname.$invalid">
+                        <span ng-show = "studentForm.lastname.$error.required">Last Name is required.</span>
+                     </span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email: </td><td><input name = "email" type = "email" ng-model = "email" length = "100" required>
+                     <span style = "color:red" ng-show = "studentForm.email.$dirty && studentForm.email.$invalid">
+                        <span ng-show = "studentForm.email.$error.required">Email is required.</span>
+                        <span ng-show = "studentForm.email.$error.email">Invalid email address.</span>
+                     </span>
+            </td>
+            </tr>
+            <tr>
+                <td>Username: </td><td><input name = "username" type = "text" ng-model = "username" length = "100" required>
+                     <span style = "color:red" ng-show = "studentForm.username.$dirty && studentForm.username.$invalid">
+                        <span ng-show = "studentForm.username.$error.required">Username is required.</span>
+                        <span ng-show = "studentForm.username.$error.email">username</span>
+                     </span>
+            </td>
+            </tr>
+            <tr>
+                <td>Password: </td><td><input name = "password" type = "password" ng-model = "password" length = "30" required>
+                     <span style = "color:red" ng-show = "studentForm.password.$dirty && studentForm.password.$invalid">
+                        <span ng-show = "studentForm.password.$error.required">password is required.</span>
+                        <span ng-show = "studentForm.password.$error.password">Invalid password.</span>
+                     </span>
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <button ng-click = "reset()">Reset</button>
+                </td>
+
+
+
+
+                <td>
+                    <button ng-disabled = "studentForm.firstname.$dirty &&
+                        studentForm.firstname.$invalid || studentForm.lastname.$dirty &&
+                        studentForm.lastname.$invalid || studentForm.email.$dirty &&
+                        studentForm.password.$invalid || studentForm.password.$dirty &&
+                        studentForm.email.$invalid" ng-click="saveRegistrationData(firstName,lastName,email,username,password)">Submit</button>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

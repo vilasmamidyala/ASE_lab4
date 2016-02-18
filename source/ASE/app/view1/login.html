@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html ng-app="LoginApp">
+<head>
+    <title>Login Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+<script src="LoginValidation.js"></script>
+    <style>
+        div.project {
+            background-color:black;
+            color:white;
+            margin:20px;
+            padding:20px;
+        }
+
+    </style>
+</head>
+
+
+<body ng-controller="LoginController" background="images.jpg" align="center">
+
+<div class="project">
+    <h1 align="center">Login</h1>
+    <p align="center">This is login page.if you are first time user click register and fill out the form otherwise use your credentials to login </p>
+</div>
+
+
+
+
+       <h1><b> User Name:</b></h1>
+        <input type="text" ng-model="userName" >
+        <h1><b>Password:</b></h1>
+        <input type="password" ng-model="password">
+        <br><br>
+        <button ng-click="validateRegistrationData(userName,password)" value="Submit">Submit</button>
+        <button onclick="window.location='register2.html'" value="Register">Register</button>
+
+</div>
+<br>
+<br>
+<a href="http://www.w3schools.com/">forgot password</a>
+</body>
+</html>
